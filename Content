@@ -1,0 +1,5 @@
+Pseudo Elements
+::before and ::after
+
+Introduction to pseudo elements
+Pseudo elements are parts of an element that you can style independently. They do not require any additional markup to use. You just add the keyword for the pseudo element you want to the selector for that element. The pseudo elements currently available are:
