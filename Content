@@ -1,5 +1,23 @@
+reference
+https://levelup.gitconnected.com/understand-before-and-after-pseudo-elements-98eae657ae10
+
 Pseudo Elements
 ::before and ::after
 
+---
+
 Introduction to pseudo elements
-Pseudo elements are parts of an element that you can style independently. They do not require any additional markup to use. You just add the keyword for the pseudo element you want to the selector for that element. The pseudo elements currently available are:
+
+Pseudo elements are parts of an element that you can style independently. They do not require any additional markup to use. You place the keyword for the pseudo element you want after the selector for that element. The pseudo elements currently available are: ::after, ::backdop, ::before, ::cue, ::first-letter, ::first-line, ::grammar-error, ::marker, ::part(), ::placeholder, ::selection, ::slotted(), ::spelling-error.
+
+This page will focus on the pseudo elements ::before and ::after only.
+
+---
+
+::before
+
+::before and ::after are pseudo elements that are contained by an element's formatting box. 
+
+::before allows you to add content with css that will be the first child of the element, and therefore it will appear before the element's content. ::after allows you to add content with css that will be the last child of the element, and therefore it will appear after the element's content.
+
+::before and ::after are both inline by default.
