@@ -21,3 +21,11 @@ This page will focus on the pseudo elements ::before and ::after only.
 ::before allows you to add content with css that will be the first child of the element, and therefore it will appear before the element's content. ::after allows you to add content with css that will be the last child of the element, and therefore it will appear after the element's content.
 
 ::before and ::after are both inline by default.
+
+---
+
+Stacking Order
+
+The default stacking order of an element and it's ::before and ::after pseudo elements is for the child element ::before to display on top of the element and the child element ::after to stack on top of ::before.
+
+Because the pseudo elements are considered child elements, changing the z-index on them and the parent will not always work to stack them behind the parent element. First you must give the element a stacking context within its container element. Set position and z-index for the element that contains the parent. Do NOT set a z-index for the parent, but DO set z-index for the child pseudo elements.
