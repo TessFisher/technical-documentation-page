@@ -1,6 +1,4 @@
-reference
-https://levelup.gitconnected.com/understand-before-and-after-pseudo-elements-98eae657ae10
-http://www.independent-software.com/set-stacking-order-of-pseudo-elements-below-parent-element.html
+
 
 Pseudo Elements
 ::before and ::after
@@ -30,3 +28,28 @@ Stacking Order
 The default stacking order of an element and it's ::before and ::after pseudo elements is for the child element ::before to display on top of the element and the child element ::after to stack on top of ::before.
 
 Because the pseudo elements are considered child elements, changing the z-index on them and the parent will not always work to stack them behind the parent element. First you must give the element a stacking context within its container element. Set position and z-index for the element that contains the parent. Do NOT set a z-index for the parent, but DO set z-index for the child pseudo elements.
+
+---
+
+Content
+
+The CSS content property allows you to add content outside of the HTML, that will not appear in the DOM.
+
+The initial value for elements is normal. For ::before and ::after pseudo elements, normal computes to none and the elements do not render at all.
+
+The content property must be set to an empty string if you wish to use the pseudo element for its shape only. Other common values are a string of text, an image, a counter, or open and close quotes.
+
+---
+
+Examples
+
+Two examples that I used on this webpage are zigzag borders and wave borders. With ::before and ::after pseudo elements you can create complex, decorative borders like these with only one or two &lt;div&gt;s in the HTML.
+
+---
+
+References
+
+https://www.smashingmagazine.com/2011/07/learning-to-use-the-before-and-after-pseudo-elements-in-css/
+https://levelup.gitconnected.com/understand-before-and-after-pseudo-elements-98eae657ae10
+http://www.independent-software.com/set-stacking-order-of-pseudo-elements-below-parent-element.html
+https://codebond.co/tutorial/css/all-about-before-and-after-pseudo-element
