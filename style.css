@@ -315,6 +315,20 @@ section h2{
     padding-left: 2em;
     padding-right: 2em;
 }
+.references a{
+    text-decoration: none;
+    color: #432444;
+}
+.references a:hover{
+    color: #926f8e;
+}
+footer{
+    color: #432444;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    z-index: 1;
+}
 
 /*----------examples----------*/
 
@@ -487,18 +501,4 @@ section h2{
 }
 .text{
     z-index: 10;
-}
-.references a{
-    text-decoration: none;
-    color: #432444;
-}
-.references a:hover{
-    color: #926f8e;
-}
-footer{
-    color: #432444;
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
-    z-index: 1;
 }
