@@ -218,11 +218,11 @@ nav header{
 }
 
 #pimg3{
-    background-image: url(images/branch.jpg);
+    background-image: url("Images/branch.jpg");
 }
 
 #pimg4{
-    background-image: url(images/flowers.jpg);
+    background-image: url(Images/flowers.jpg);
 }
 
 #pimg5{
