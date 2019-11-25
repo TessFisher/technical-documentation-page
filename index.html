@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>technical documentation page</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="header-shadow"></div>
+        <header id="header">
+            <h1>Pseudo Elements</h1>
+            <p>::before and ::after</p>
+        </header>
+        <nav id="navbar">
+            <header>Pseudo Elements</header>
+            <ul>
+                <li><a class="nav-link" href="#pseudo_elements">Pseudo Elements</a></li>
+                <li><a class="nav-link" href="#::before_and_::after">::before and ::after</a></li>
+                <li><a class="nav-link" href="#stacking_order">Stacking Order</a></li>
+                <li><a class="nav-link" href="#content">Content</a></li>
+                <li><a class="nav-link" href="#examples">Examples</a></li>
+                <li><a class="nav-link" href="#references">References</a></li>
+            </ul>
+        </nav>
+        <main id="main-doc">
+            <div class="pimg" id="pimg1">
+                 <div class="wavy bottom" id="s1-anchor"></div>
+            </div>
+            <section class="main-section" id="pseudo_elements">
+                <header><h2>Pseudo Elements</h2></header>
+                <p>Pseudo elements are parts of an element that you can style independently. They do not require any additional markup to use. You place the keyword for the pseudo element you want after the selector for that element. The pseudo elements currently available are:</p>
+                    <ul>
+                        <li>::after</li>
+                        <li>::backdrop</li>
+                        <li>::before</li>
+                        <li>::cue</li>
+                        <li>::first-letter</li>
+                        <li>::first-line</li>
+                        <li>::grammar-error</li>
+                        <li>::marker</li>
+                        <li>::part()</li>
+                        <li>::placeholder</li>
+                        <li>::selection</li>
+                        <li>::slotted()</li>
+                        <li>::spelling-error</li>
+                    </ul>
+                <p>This page will focus on the pseudo elements ::before and ::after only.</p>
+            </section>
+            <div class="pimg" id="pimg2">
+                    <div class="wavy top"></div>
+                    <div class="wavy bottom reverse" id="s2-anchor"></div>
+            </div>
+            <section class="main-section" id="::before_and_::after">
+                <header><h2>::before and ::after</h2></header>
+                <p>::before and ::after are pseudo elements that are contained by an element's formatting box.</p>
+                <p>::before allows you to add content with css that will be the first child of the element, and therefore it will appear before the element's content. ::after allows you to add content with css that will be the last child of the element, and therefore it will appear after the element's content.</p>
+                <p>::before and ::after are both inline by default.</p>
+                <div class="example">
+                    <pre class="code">
+                        <code class="language-markup">
+&lt;div&gt;
+    &lt;h1&gt;Heading&lt;/h1&gt;
+    &lt;p&gt;Paragraph&lt;/p&gt;
+&lt;/div&gt;
+&lt;style&gt;
+    div{
+        background-color: #e4e4db;
+        color: #35353c
+    }
+    div::before{
+        content: "div::before";
+        background-color: #bbbbb4;
+    }
+    div::after{
+        content: "div::after";
+        background-color: #a6a6a0;
+    }
+    h1{
+        background-color: #e4e4db;
+    }
+    h1:before{
+        content: "h1::before";
+        background-color: #bbbbb4;
+    }
+    h1::after{
+        content: "h1::after";
+        background-color: #a6a6a0;
+    }
+&lt;/style&gt;
+                        </code>
+                    </pre>
+                    <div class="rendering">    
+                        <div>
+                            <h1>Heading</h1>
+                            <p>Paragraph</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="pimg" id="pimg3">
+                    <div class="wavy top reverse"></div>
+                    <div class="wavy bottom" id="s3-anchor"></div>
+            </div>
+            <section class="main-section" id="stacking_order">
+                <header><h2>Stacking Order</h2></header>
+                <p>The default stacking order of an element and it's ::before and ::after pseudo elements is for the child element ::before to display on top of the element and the child element ::after to stack on top of ::before.</p>
+                <div class="example">
+                        <pre class="code">
+                            <code class="language-markup">
+    h1::before{
+        position: relative;
+        left: 6.5em;
+        top: .75em;
+    }
+    h1::after{
+        position: relative;
+        top: 1.5em;
+    }
+                            </code>
+                        </pre>
+                        <div class="rendering stacked">    
+                            <div>
+                                <h1>Heading</h1>
+                                <p>Paragraph</p>
+                            </div>
+                        </div>
+                </div>
+                <p>Because the pseudo elements are considered child elements, changing the z-index on them and the parent will not always work to stack them behind the parent element. First you must give the element a stacking context within its container element. Set position and z-index for the element that contains the parent. Do NOT set a z-index for the parent, but DO set z-index for the child pseudo elements.</p>
+                <div class="example">
+                        <pre class="code">
+                            <code class="language-markup">
+    div{
+        position: relative;
+        z-index: 0;
+    }
+    h1::before{
+        z-index: -1;
+        }
+    h1::after{
+        z-index: -2;
+    }
+                            </code>
+                        </pre>
+                        <div class="rendering stacked reverse">    
+                            <div>
+                                <h1>Heading</h1>
+                                <p>Paragraph</p>
+                            </div>
+                        </div>
+                </div>
+            </section>
+            <div class="pimg" id="pimg4">
+                    <div class="wavy top"></div>
+                    <div class="wavy bottom reverse" id="s4-anchor"></div>
+            </div>
+            <section class="main-section" id="content">
+                <header><h2>Content</h2></header>
+                <p>The CSS content property allows you to add content outside of the HTML, that will not appear in the DOM.<br><br>The initial value for elements is normal. For ::before and ::after pseudo elements, normal computes to none and the elements do not render at all.<br><br>The content property must be set to an empty string if you wish to use the pseudo element for its shape only. Other common values are a string of text, an image, a counter, or open and close quotes.</p>
+                <div class="example">
+                        <pre class="code">
+                            <code class="language-markup">
+&lt;div&gt;
+    &lt;h1&gt;Content Values&lt;/h1&gt;
+    &lt;ol&gt;
+        &lt;li&gt;empty string&lt;/li&gt;
+        &lt;li&gt;string&lt;/li&gt;
+        &lt;li&gt;image&lt;/li&gt;
+        &lt;li&gt;counter&lt;/li&gt;
+        &lt;li&gt;open and close quotes&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/div&gt;
+&lt;style&gt;
+    div{
+        padding: 10px;
+        background-color: #e4e4db;
+        color: #35353c
+    }
+    ol{
+        list-style: none;
+        counter-reset: li;
+    }
+    li{
+        counter-increment: li;
+    }
+    ::before, ::after{
+        background-color: #bbbbb4;
+    }
+    li:nth-of-type(1)::before{
+        content: "";
+        display: inline-block;
+        width: 30px;
+        height: 20px;
+    }
+    li:nth-of-type(2)::before{
+        content: "This is the ::before content."
+    }
+    li:nth-of-type(3)::before{
+        content: url(./images/arrow.png);
+    }
+    li:nth-of-type(4)::before{
+        content: counter(li);
+    }
+    li:nth-of-type(5)::before{
+        content: open-quote;
+    }
+    li:nth-of-type(5)::after{
+        content: close-quote;
+    }
+&lt;/style&gt;
+                            </code>
+                        </pre>
+                        <div class="rendering content">    
+                            <div>
+                                <h1>Content Values</h1>
+                                <ol>
+                                    <li>empty string</li>
+                                    <li>string</li>
+                                    <li>image</li>
+                                    <li>counter</li>
+                                    <li>open and close quotes</li>
+                                </ol>
+                            </div>
+                        </div>
+                </div>
+            </section>
+            <div class="pimg" id="pimg5">
+                    <div class="wavy top reverse"></div>
+                    <div class="wavy bottom" id="s5-anchor"></div>
+            </div>
+            <section class="main-section" id="examples">
+                <header><h2>Examples</h2></header>
+                <p>Two examples that I used on this webpage are zigzag borders and wave borders. With ::before and ::after pseudo elements you can create complex, decorative borders like these with only one or two &lt;div&gt;s in the HTML. </div></p>
+                <div class="example">
+                    <div class="text">
+                        <pre class="code">
+                            <code class="language-markup">
+&lt;div class="example"&gt;&lt;/div&gt;
+&lt;div class="wave"&gt;&lt;/div&gt;
+&lt;style&gt;
+    .example{
+        position: absolute;
+        right: 90px;
+        height: 100%;
+        width: 80px;
+        background-color: #bbbbb4;
+    }
+    .example::before{
+        content:"";
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 10px;
+        background: 
+            linear-gradient(-135deg, #bbbbb4 5px, transparent 0) 0 5px, 
+            linear-gradient(320deg, #bbbbb4 5px, transparent 0) 0 5px;    
+        background-position: left top;
+        background-repeat: repeat-y;
+        background-size: 10px 10px;
+        left: -10px;
+    }
+    .wave{
+        position: absolute;
+        color: #bbbbb4;
+        width: 150px;
+        height: 100%;
+        overflow: hidden;
+        right: -60px;
+    }
+    .wave::before{
+        content: "";
+        display: block;
+        position: absolute;
+        width: 40px;
+        height: 50.1%;
+        background: #bbbbb4;
+        border-radius: 0 100% 0 0;
+    }
+    .wave::after{
+        content: "";
+        display: block; 
+        position: absolute;
+        width: 40px;
+        height: 50.1%;
+        background: transparent;
+        border-radius: 0 0 0 100%;
+        border: solid #bbbbb4;
+        border-width: 0 0 0 2000px;
+        bottom: -0.5px;
+        right: 70px;
+    }
+&lt;/style&gt;
+                            </code>
+                        </pre>
+                    </div>
+                            <div class="example1"></div>
+                            <div class="example2"></div>
+                </div>
+
+            </section>
+            <div class="pimg" id="pimg6">
+                    <div class="wavy top"></div>
+                    <div class="wavy bottom reverse" id="s6-anchor"></div>
+            </div>
+            <section class="main-section" id="references">
+                <header><h2>References</h2></header>
+                <ul class="references">
+                    <li><a href="https://www.smashingmagazine.com/2011/07/learning-to-use-the-before-and-after-pseudo-elements-in-css/">Learning To Use The :after And :before Pseudo-Elements In CSS</a></li>
+                    <li><a href="https://levelup.gitconnected.com/understand-before-and-after-pseudo-elements-98eae657ae10">Understand ::before and ::after Pseudo-Elements</a></li>
+                    <li><a href="http://www.independent-software.com/set-stacking-order-of-pseudo-elements-below-parent-element.html">CSS Pseudo-Element Stacking</a></li>
+                    <li><a href="https://codebond.co/tutorial/css/all-about-before-and-after-pseudo-element">All about before and after pseudo element</a></li>
+                </ul>
+            </section>
+            <div class="pimg" id="pimg7">
+                    <div class="wavy top reverse"></div>
+                    <div class="wavy bottom">
+                            <footer>
+                                    Copyright &copy; 2019 Tess Fisher
+                            </footer>
+                    </div>
+            </div>
+        </main>
+    </body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    </html>
