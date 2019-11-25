@@ -210,11 +210,11 @@ nav header{
 
 
 #pimg1{
-    background-image: url(https://github.com/TessFisher/technical-documentation-page/blob/master/Images/field.jpg);
+    background-image: url("https://github.com/TessFisher/technical-documentation-page/blob/master/Images/field.jpg");
 }
 
 #pimg2{
-    background-image: url(images/large.jpg);
+    background-image: url("images/large.jpg");
 }
 
 #pimg3{
