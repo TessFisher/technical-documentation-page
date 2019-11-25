@@ -1,0 +1,504 @@
+:root{
+    --bhue: 298; 
+    --bsat: 14;
+    --blig: 50;
+    --light:hsl(var(--bhue), calc(var(--bsat)*1%), calc(var(--blig)*1%));
+    --dark:hsl(var(--bhue), calc(var(--bsat)*1% + 5%), calc(var(--blig)*1% - 10%));
+    --darkest:hsl(var(--bhue), calc(var(--bsat)*1% + 10%), calc(var(--blig)*1% - 20%));
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #f2d1dd;
+    color: #432444;
+    font-size: 62.5%;
+    font-family: 'Roboto Slab', serif;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+/*----------header-shadow----------*/
+
+#header-shadow{
+    position: fixed;
+    left: -100px;
+    top:20px;
+    height: 100px;
+    width: 500px;
+    transform: rotate(-30deg);
+    background-color: #e49bb5;
+    z-index: 12;
+}
+
+#header-shadow::before,
+#header-shadow::after {
+    content:" ";
+    display: block;
+    height: 10px;
+    width: 100%;
+    position: fixed;
+    left: 1px;
+    background-clip: content-box;
+}
+
+#header-shadow::before{
+    top: -10.75px;
+    left: -1px;
+    background: 
+        linear-gradient(-45deg, #432444 5px, transparent 0) 0 5px, 
+        linear-gradient(45deg, #432444 5px, transparent 0) 0 5px;    
+    background-position: left top;
+    background-repeat: repeat-x;
+    background-size: 11px 11px;
+}
+
+#header-shadow::after{
+    top: 101px;
+    left: -1px;
+    background: 
+        linear-gradient(225deg, #432444 5px, transparent 0) 0 5px, 
+        linear-gradient(-225deg, #432444 5px, transparent 0) 0 5px;    
+    background-position: left bottom;
+    background-repeat: repeat-x;
+    background-size: 11px 11px;
+}
+
+
+/*----------header----------*/
+
+#header{
+    position: fixed;
+    left: -100px;
+    top:20px;
+    z-index: 13;
+    background-color: #e49bb5;
+    height: 100px;
+    width: 500px;
+    display: grid;
+    place-items: center;
+    transform: rotate(-30deg);
+}
+
+#header::before,
+#header::after {
+    content:" ";
+    display: block;
+    height: 10px;
+    width: 100%;
+    position: fixed;
+    left: 0px;
+}
+
+#header::before{
+    top: -10px;
+    background: 
+        linear-gradient(-45deg, #e49bb5 5px, transparent 0) 0 5px, 
+        linear-gradient(45deg, #e49bb5 5px, transparent 0) 0 5px;    
+    background-position: left top;
+    background-repeat: repeat-x;
+    background-size: 11px 11px;
+}
+
+#header::after{
+    top: 100px;
+    background: 
+        linear-gradient(225deg, #e49bb5 5px, transparent 0) 0 5px, 
+        linear-gradient(-225deg, #e49bb5 5px, transparent 0) 0 5px;    
+    background-position: left bottom;
+    background-repeat: repeat-x;
+    background-size: 11px 11px;
+}
+
+#header h1{
+    font-size: 2.5em;
+    position: relative;
+    right: 15px;
+    margin-bottom: 5px;
+}
+
+#header p{
+    font-size: 1.5em;
+    position: relative;
+    right: 15px;
+    margin-top: 5px;
+}
+
+/*---------navbar---------*/
+
+#navbar{
+    position: fixed;
+    left: 40px;
+    top: 0px;
+    height: 100%;
+    width: 200px;
+    background-color: #926f8e;
+    background: linear-gradient(to top, var(--dark) 0%, var(--light) 15%, var(--dark) 25%, var(--darkest) 50%, var(--dark) 75%, var(--light) 85%, var(--dark) 100%);
+    border-left: 1px solid var(--dark);
+    border-right: 1px solid var(--dark);
+    box-shadow: -2px 0 10px rgba(0,0,0,0.4);
+    z-index: 11;
+}
+
+nav header{
+    display:none;
+}
+
+/*----------navbar-contents----------*/
+
+#navbar {
+    padding-top: 200px;
+    overflow: hidden;
+}
+#navbar ul{
+    margin: 0px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#navbar li{
+    list-style: none;
+    margin: 10px;
+    padding: 5px 30px;
+    width: 100%;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+#navbar a{
+    text-decoration: none;
+    font-size: 2em;
+    text-shadow: 2px 8px 6px rgba(67, 36, 68, 0.3), 0px -5px 35px rgba(242, 209, 221, 0.4);
+    color: #e49bb5;
+    z-index: 12;
+    width: 100%;
+    text-align: center;
+    
+}
+#navbar a:hover{
+    text-shadow: 2px 8px 6px rgba(67, 36, 68, 0.3), 0px -5px 35px rgba(242, 209, 221, 0.8);
+    color: #f2d1dd;
+    transition: color 0.75s ease, text-shadow 0.75s ease;
+}       
+/*----------main-doc----------*/
+
+#main-doc{
+    background-color: #f2d1dd;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+}
+
+/*----------images----------*/
+
+.pimg{
+    height: 400px;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.75;
+}
+
+
+#pimg1{
+    background-image: url(./images/field.jpg);
+}
+
+#pimg2{
+    background-image: url(./images/large.jpg);
+}
+
+#pimg3{
+    background-image: url(./images/branch.jpg);
+}
+
+#pimg4{
+    background-image: url(./images/flowers.jpg);
+}
+
+#pimg5{
+    background-image: url(./images/tree.jpg);
+}
+
+#pimg6{
+    background-image: url(./images/rose.jpg);
+}
+
+#pimg7{
+    background-image: url(./images/top.jpg);
+}
+
+/*----------page-breaks----------*/
+
+.wavy{
+    position: absolute;
+    color: #f2d1dd;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    left: 0;
+}
+.wavy.bottom{
+    bottom: 0;
+}
+.wavy.top{
+    top: 0;
+    transform:  rotateY(180deg)
+                rotateX(180deg);
+}
+.wavy.bottom.reverse{
+    transform: rotateY(180deg);
+}
+.wavy.top.reverse{
+    transform: rotateX(180deg);
+}
+.wavy::before{
+    content: "";
+    display: block;
+    width: 50.1%;
+    height: 50px;
+    background: #f2d1dd;
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.wavy::after{
+    content: "";
+    display: block;
+    width: 50.1%;
+    height: 50px;
+    background: transparent;
+    border-radius: 0 0 100% 0;
+    border: 200px solid #f2d1dd;
+    border-width: 0 200px 200px 0;
+    position: absolute;
+    left: 50%;
+    top: 0;
+}
+
+/*----------sections----------*/
+
+section{
+    min-height: 400px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 30px 20px 20px 280px;
+    background-color: #f2d1dd;
+    overflow: hidden; 
+}
+
+section h2{
+    text-align: center;
+}
+
+#pseudo_elements ul{
+    margin: 0 auto;
+    padding: 0;
+    max-width: 80%;
+    height: 10em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+#pseudo_elements li{
+    list-style: none;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+/*----------examples----------*/
+
+.example{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: #35353c;
+    box-shadow: -1px 1px 10px rgba(0,0,0,0.4);
+    font-size: 1em;
+    overflow: none;
+}
+.code{
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+    color: #e4e4db;
+    width: 50%;
+}
+.language-markup{
+    margin: 0;
+    padding: 0;
+}
+.rendering{
+    color: #35353c;
+    width: 50%;
+}
+.rendering div{
+    background-color: #e4e4db;
+    overflow: scroll;
+    position: relative;
+    z-index: 1;
+}
+.rendering div::before{
+    content: "div::before";
+    background-color: #bbbbb4;
+}
+.rendering div::after{
+    content: "div::after";
+    background-color: #a6a6a0;
+}
+.rendering h1:before{
+    content: "h1::before";
+    background-color: #bbbbb4;
+}
+.rendering h1::after{
+    content: "h1::after";
+    background-color: #a6a6a0;
+}
+.stacked h1::before{
+    position: relative;
+    left: 6.5em;
+    top: .75em;
+}
+.stacked h1::after{
+    position: relative;
+    top: 1.5em;
+}
+.reverse div{
+    z-index: 0;
+}
+.reverse h1{
+    background-color: #e4e4db;
+}
+.reverse h1::before{
+    z-index: -1;
+}
+.reverse h1::after{
+    z-index: -2;
+}
+.content div{
+    padding: 10px;
+}
+.content div::before, 
+.content div::after,
+.content h1::before,
+.content h1::after{
+    content: none;
+}
+
+.content ol{
+    list-style: none;
+    counter-reset: li;
+}
+.content li{
+    padding-bottom: 3px;
+    counter-increment: li;
+}
+.content ::before,
+.content ::after{
+    background-color: #bbbbb4;
+}
+.content li:nth-of-type(1)::before{
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    top: 4px;
+}
+.content li:nth-of-type(2)::before{
+    content: "This is the ::before content."
+}
+.content li:nth-of-type(3)::before{
+    content: url(./images/arrow.png);
+}
+.content li:nth-of-type(4)::before{
+    content: counter(li);
+}
+.content li:nth-of-type(5)::before{
+    content: open-quote;
+}
+.content li:nth-of-type(5)::after{
+    content: close-quote;
+}
+.example1{
+    position: absolute;
+    top: 0;
+    right: 90px;
+    height: 100%;
+    width: 80px;
+    background-color: #bbbbb4;
+}
+
+.example1::before{
+    content:"";
+    display: block;
+    height: 100%;
+    width: 10px;
+    position: absolute;
+    background: 
+        linear-gradient(-135deg, #bbbbb4 5px, transparent 0) 0 5px, 
+        linear-gradient(320deg, #bbbbb4 5px, transparent 0) 0 5px;    
+    background-position: left top;
+    background-repeat: repeat-y;
+    background-size: 10px 10px;
+    left: -10px;
+}
+.example2{
+    position: absolute;
+    color: #bbbbb4;
+    width: 150px;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    right: -60px;
+}
+.example2::before{
+    content: "";
+    display: block;
+    width: 40px;
+    height: 50.1%;
+    background: #bbbbb4;
+    border-radius: 0 100% 0 0;
+    position: absolute;
+}
+.example2::after{
+    content: "";
+    display: block;
+    width: 40px;
+    height: 50.1%;
+    background: transparent;
+    border-radius: 0 0 0 100%;
+    border: solid #bbbbb4;
+    border-width: 0 0 0 2000px;
+    position: absolute;
+    bottom: -0.5px;
+    right: 70px;
+}
+.text{
+    z-index: 10;
+}
+.references a{
+    text-decoration: none;
+    color: #432444;
+}
+.references a:hover{
+    color: #926f8e;
+}
+footer{
+    color: #432444;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    z-index: 1;
+}
