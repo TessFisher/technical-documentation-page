@@ -342,12 +342,19 @@ footer{
     font-size: 1em;
     overflow: none;
 }
+.text{
+    width: 100%;
+}
 .code{
     margin: 0;
     padding: 0;
     height: fit-content;
-    color: #e4e4db;
     width: 50%;
+    overflow-x: scroll;
+    color: #e4e4db;
+}
+.examples-code{
+    width: 80%;
 }
 .language-markup{
     margin: 0;
@@ -355,7 +362,9 @@ footer{
 }
 .rendering{
     color: #35353c;
-    width: 50%;
+    width: 45%;
+    position: absolute;
+    right: 5%;
 }
 .rendering div{
     background-color: #e4e4db;
@@ -370,6 +379,9 @@ footer{
 .rendering div::after{
     content: "div::after";
     background-color: #a6a6a0;
+}
+.rendering h1{
+    font-size: 1.2em;
 }
 .rendering h1:before{
     content: "h1::before";
@@ -450,8 +462,8 @@ footer{
     top: 0;
     right: 90px;
     height: 100%;
-    width: 80px;
-    background-color: #bbbbb4;
+    width: 20px;
+    background-color: #e4e4db;
 }
 
 .example1::before{
@@ -461,8 +473,8 @@ footer{
     width: 10px;
     position: absolute;
     background: 
-        linear-gradient(-135deg, #bbbbb4 5px, transparent 0) 0 5px, 
-        linear-gradient(320deg, #bbbbb4 5px, transparent 0) 0 5px;    
+        linear-gradient(-135deg, #e4e4db 5px, transparent 0) 0 5px, 
+        linear-gradient(320deg, #e4e4db 5px, transparent 0) 0 5px;    
     background-position: left top;
     background-repeat: repeat-y;
     background-size: 10px 10px;
@@ -470,7 +482,7 @@ footer{
 }
 .example2{
     position: absolute;
-    color: #bbbbb4;
+    color: #e4e4db;
     width: 150px;
     height: 100%;
     overflow: hidden;
@@ -482,7 +494,7 @@ footer{
     display: block;
     width: 40px;
     height: 50.1%;
-    background: #bbbbb4;
+    background: #e4e4db;
     border-radius: 0 100% 0 0;
     position: absolute;
 }
@@ -493,12 +505,52 @@ footer{
     height: 50.1%;
     background: transparent;
     border-radius: 0 0 0 100%;
-    border: solid #bbbbb4;
+    border: solid #e4e4db;
     border-width: 0 0 0 2000px;
     position: absolute;
     bottom: -0.5px;
     right: 70px;
 }
-.text{
-    z-index: 10;
+
+
+/*---------media queries-----------*/
+
+
+@media only screen and (max-width: 815px){
+    #navbar{
+        left: 0px;
+        top: 10px;
+        height: 150px;
+        max-height: 25vh;
+        width: 100%;
+        background: linear-gradient(to right, var(--dark) 0%, var(--light) 20%, var(--dark) 35%, var(--dark) 50%, var(--darkest) 65%, var(--darkest) 85%, var(--dark) 100%);
+        border-right: none;
+        border-left: none;        
+        border-top: 1px solid var(--dark);
+        border-bottom: 1px solid var(--darkest);
+        padding-top: 0;
+        overflow: scroll;
+    }
+    #navbar ul{
+        padding-right: 20px;
+    }
+    #navbar li{
+        margin: 5px;
+        padding: 2px 0px;
+    }
+    #navbar a{
+        font-size: 1.6em;
+        text-align: right;
+    }
+    #main-doc{
+        font-size: 1.3em;
+    }
+    section{
+        padding-left: 20px;
+    }
+}
+@media only screen and (max-width: 540px){
+    .examples-code{
+        width: 65%;
+    }
 }
