@@ -550,6 +550,54 @@ footer{
     }
 }
 @media only screen and (max-width: 540px){
+    #header-shadow{
+        position: fixed;
+        left: -60px;
+        top:12px;
+        height: 60px;
+        width: 300px;
+        transform: rotate(-35deg);
+        background-color: #e49bb5;
+        z-index: 12;
+    }
+    #header-shadow::after{
+        top: 65.5px;
+    }
+    #header{
+        position: fixed;
+        left: -60px;
+        top:12px;
+        z-index: 13;
+        background-color: #e49bb5;
+        height: 65px;
+        width: 300px;
+        display: grid;
+        place-items: center;
+        transform: rotate(-35deg);
+    }
+    #header::after{
+        top: 65px;
+    }
+    
+    #header h1{
+        font-size: 1.8em;
+        position: relative;
+        right: 20px;
+        margin-bottom: 2px;
+    }
+    
+    #header p{
+        font-size: 1.2em;
+        position: relative;
+        right: 20px;
+        margin-top: 2px;
+    }
+    #navbar a{
+        font-size: 1.4em;
+    }
+    #main-doc{
+        font-size: 1.1em;
+    }
     .examples-code{
         width: 65%;
     }
